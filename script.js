@@ -2,7 +2,7 @@ const form = document.getElementById("feedbackForm");
 const thankyou = document.getElementById("thankyouMessage");
 const progress = document.getElementById("progress");
 
-// Scroll-based step tracker
+// Track step progress on scroll
 const sections = document.querySelectorAll("h3");
 window.addEventListener("scroll", () => {
   sections.forEach((section, index) => {
@@ -13,7 +13,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Handle form submission
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -30,21 +29,17 @@ form.addEventListener("submit", function (e) {
     suggestions: document.getElementById("suggestions").value
   };
 
+  // Send data to Google Sheets
   fetch("https://script.google.com/macros/s/AKfycby9Cc1jXTejqh2jiqg5ft3Uh5pwYlPBQlwfowPKCqJP3Iyemzoew5bBmA-lU-PlOvC8/exec", {
     method: "POST",
-    mode: "no-cors", // Important for Google Sheets Web App
+    mode: "no-cors", // Google Apps Script only works with no-cors
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(formData)
-  })
-  .then(() => {
-    // Google Scripts returns empty body on no-cors, so just proceed
-    form.style.display = "none";
-    thankyou.style.display = "block";
-  })
-  .catch(error => {
-    console.error("Error submitting form:", error);
-    alert("There was a problem. Please try again.");
   });
+
+  // Show thank-you immediately after form submit (since no-cors prevents response)
+  form.style.display = "none";
+  thankyou.style.display = "block";
 });
