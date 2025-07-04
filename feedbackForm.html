@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ACM Orientation Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="feedbackForm.css">
+  <link rel="stylesheet" href="feedbackForm.js">
+</head>
+<body>
+  <div class="container">
+    <h1>ACM Orientation Feedback</h1>
+    <div id="progress">Step 1 of 3</div>
+
+    <form id="feedbackForm">
+
+      <!-- Section 1 -->
+      <h3>📌 Section 1: Basic Details</h3>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="course">Course</label>
+      <select id="course" name="course">
+        <option value="CSE">B.Tech CSE</option>
+        <option value="AI-DS">AI-DS</option>
+        <option value="AIML">AIML</option>
+        <option value="Cyber">Cyber Security</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Section 2 -->
+      <h3>🎯 Section 2: Orientation Experience</h3>
+
+      <label>Q1. How would you rate the orientation session overall?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="ratingOverall" value="5">Excellent ⭐⭐⭐⭐⭐ </label>
+        <label><input type="radio" name="ratingOverall" value="4"> ⭐⭐⭐⭐ Good</label>
+        <label><input type="radio" name="ratingOverall" value="3"> ⭐⭐⭐ Average</label>
+        <label><input type="radio" name="ratingOverall" value="2"> ⭐⭐ Below Average</label>
+        <label><input type="radio" name="ratingOverall" value="1"> ⭐ Poor</label>
+      </div>
+
+      <label>Q2. Which part of the orientation did you enjoy the most?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="enjoyed[]" value="College Life">Introduction to College Life</label>
+        <label><input type="checkbox" name="enjoyed[]" value="Tech Domain">Tech Domain Exploration</label>
+        <label><input type="checkbox" name="enjoyed[]" value="Debate">Debate Session</label>
+        <label><input type="checkbox" name="enjoyed[]" value="Quiz">Quiz Round</label>
+        <label><input type="checkbox" name="enjoyed[]" value="Interaction">Interaction with Seniors</label>
+      </div>
+
+      <label>Q3. Did the session clarify your doubts about your course?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clarifiedDoubts" value="Yes"> Yes</label>
+        <label><input type="radio" name="clarifiedDoubts" value="Somewhat"> Somewhat</label>
+        <label><input type="radio" name="clarifiedDoubts" value="No"> No</label>
+      </div>
+
+      <label>Q4. Were the debate and quiz rounds engaging?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="engagingRounds" value="Yes"> Yes</label>
+        <label><input type="radio" name="engagingRounds" value="No"> No</label>
+        <label><input type="radio" name="engagingRounds" value="Did not attend">Didn't Attend</label>
+      </div>
+
+      <label>Q5. Which domain interests you the most?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="domainInterest[]" value="Web Dev">Web Development</label>
+        <label><input type="checkbox" name="domainInterest[]" value="App Dev">App Development</label>
+        <label><input type="checkbox" name="domainInterest[]" value="ML AI">Machine Learning / AI</label>
+        <label><input type="checkbox" name="domainInterest[]" value="Cyber Security">Cyber Security</label>
+        <label><input type="checkbox" name="domainInterest[]" value="Blockchain">Blockchain</label>
+        <label><input type="checkbox" name="domainInterest[]" value="CP">Competitive Programming</label>
+        <label><input type="checkbox" name="domainInterest[]" value="Not Sure">Not Sure Yet</label>
+      </div>
+
+      <!-- Section 3 -->
+      <h3>📝 Section 3: Open-Ended</h3>
+
+      <label for="questions">Q6. Do you have any questions regarding your course or career path?</label>
+      <textarea id="questions" name="questions" rows="3"></textarea>
+
+      <label for="suggestions">Q7. What would you suggest to improve future orientation programs?</label>
+      <textarea id="suggestions" name="suggestions" rows="3"></textarea>
+
+      <div class="button-group">
+        <button type="submit">Submit Feedback</button>
+        <button type="reset">Reset Form</button>
+      </div>
+    </form>
+
+    <div class="thankyou" id="thankyouMessage">
+      🎉 Thank you for your feedback!
+    </div>
+  </div>
+
+</body>
+</html>
